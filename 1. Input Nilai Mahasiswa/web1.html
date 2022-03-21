@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TUGAS 3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  </style>
+</head>
+<body>
+
+<div class="p-5 bg-primary text-white text-center">
+  <h1>Tugas 3</h1>
+  <p>Program perhitungan nilai mahasiswa</p> 
+</div>
+
+<div class="container p-5 my-5 border">
+	<h1>Input</h1>
+	 <form action="#" id="myform">
+		<label class="form-label">NIM</label>
+		<input type="text" class="form-control" id="nim_in" placeholder="Masukkan NIM">
+		<label class="form-label">Nama</label>
+		<input type="text" class="form-control" id="nama_in" placeholder="Masukkan Nama">
+		<label class="form-label">Nilai Partisipasi</label>
+		<input type="text" class="form-control" id="n1" placeholder="Masukkan Nilai Partisipasi">
+		<label class="form-label">Nilai Tugas</label>
+		<input type="text" class="form-control" id="n2" placeholder="Masukkan Nilai Tugas">
+		<label class="form-label">Nilai UTS</label>
+		<input type="text" class="form-control" id="n3" placeholder="Masukkan Nilai UTS">
+		<label class="form-label">Nilai UAS</label>
+		<input type="text" class="form-control" id="n4" placeholder="Masukkan Nilai UAS">
+		<br>
+		<button type="button" class="btn btn-primary" onclick="data()">Simpan</button>
+		<button type="reset" class="btn btn-light"  value="reset">Reset</button>
+	 </form>
+</div>
+
+<div class="container p-5 my-5 bg-dark text-white">
+	<h1>Output</h1>
+	<br>
+  <form>
+	  <p id="nim_out"></p>
+	  <p id="nama_out"></p>
+	  <p id="absen_out"></p>
+	  <p id="tugas_out"></p>
+	  <p id="uts_out"></p>
+	  <p id="uas_out"></p>
+	  <br><br>
+	  <p id="nim"></p>
+	  <p id="nama"></p>
+	  <p id="ket_absen"></p>
+	  <p id="ket_tugas"></p>
+	  <p id="ket_uts"></p>
+	  <p id="ket_uas"></p>
+
+	  <p id="grade_out"></p>
+   </form>
+   <script>
+function data(){
+   var nim = document.getElementById('nim_in').value;
+   var nama = document.getElementById('nama_in').value;
+   var m1 = document.getElementById('n1').value;
+   var m2 = document.getElementById('n2').value;
+   var m3 = document.getElementById('n3').value;
+   var m4 = document.getElementById('n4').value;
+
+   absen = ((m1/14)*0.1)*100;
+   tugas = 0.2*m2;
+   uts = 0.3*m3;
+   uas = 0.4*m4;
+
+   jumlah = absen+tugas+uts+uas;
+
+  var grade;
+
+     if(jumlah >=80)
+    {
+    grade= "A" ;
+    }
+    else if (jumlah >=70)
+    {
+    grade= "B" ;
+    }
+
+    else if (jumlah >=59)
+    {
+    grade= "C" ;
+    }
+    else if (jumlah >=50)
+    {
+    grade= "D" ;
+    }
+    else
+    {
+    grade="E" ;
+
+    }
+
+
+/*output*/
+   document.getElementById("nim_out").innerHTML="Nim : "+nim;
+   document.getElementById("nama_out").innerHTML="Nama : "+nama;
+   document.getElementById("absen_out").innerHTML="Nilai Partisipasi : "+m1;
+   document.getElementById("tugas_out").innerHTML="Nilai Tugas : "+m2;
+   document.getElementById("uts_out").innerHTML="Nilai UTS : "+m3;
+   document.getElementById("uas_out").innerHTML="Nilai UAS : "+m4;
+
+   document.getElementById("grade_out").innerHTML="Grade : "+grade;
+  
+
+}
+ </script>
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+</div>
+
+</body>
+</html>
